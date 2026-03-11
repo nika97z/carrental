@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <header>
+        <div class="morent"><a href="index.html">MORENT</a></div>
+        <button class="regi">რეგისტრაცია</button>
+    </header>
+    <div class="header_holder"></div>
+    <div class="reg_main">
+        <form class="reg_1" id="registerForm">
+            <div class="tel rag"> 
+                <input type="text" name="phoneNumber" placeholder="ტელეფონის ნომერი" required>
+            </div>
+            <div class="name rag">
+                <input type="text" name="firstName" placeholder="სახელი" required>
+            </div>
+            <div class="surname rag">
+                <input type="text" name="lastName" placeholder="გვარი" required>
+            </div>
+            <div class="email rag">
+                <input type="email" name="email" autocomplete="email" placeholder="ელ.ფოსტა" required>
+            </div>
+            <div class="password rag">
+                <input type="password" name="password" placeholder="პაროლი" required>
+            </div>
+            <div class="register rag">
+                <input type="submit" value="რეგისტრაცია">
+            </div>
+        </form>
+        <div class="reg_2">
+            <p>უკვე გაქვთ ანგარიში?</p>
+            <button><a href="index.html">შესვლა</a></button>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

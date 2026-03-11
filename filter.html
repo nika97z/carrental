@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Filter</title>
+</head>
+<body>
+    <div class="filter">
+        <div class="brand">
+            <form action="">
+                <label for="brand">Brand:</label>
+                <select name="brand" id="brand">
+                    <option value="all">All</option>
+                    <option value="toyota">Toyota</option>
+                    <option value="honda">Honda</option>
+                    <option value="ford">Ford</option>
+                </select>
+            </form>
+        </div>
+        <div class="town">
+            <form action="">
+                <label for="town">Town:</label>
+                <select name="town" id="town">
+                    <option value="all">All</option>
+                    <option value="newyork">New York</option>
+                    <option value="losangeles">Los Angeles</option>
+                    <option value="chicago">Chicago</option>
+                </select>
+            </form>
+        </div>
+        <div class="year">
+            <form action="">
+                <label for="year_start">Year Range:</label>
+                <select id="year_start" name="year_start" aria-label="Start year">
+                    <option value="">Start year</option>
+                </select>
+                <select id="year_end" name="year_end" aria-label="End year">
+                    <option value="">End year</option>
+                </select>
+            </form>
+        </div>
+        <div class="price">
+            <form action="">
+                <label for="price">Price:</label>
+                <select name="price" id="price">
+                    <option value="all">All</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </form>
+        </div>
+        <div class="capasiti">
+            <form action="">
+                <label for="capasiti">Capasiti:</label>
+                <select name="capasiti" id="capasiti">
+                    <option value="all">All</option>
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                </select>
+            </form>
+        </div>
+    </div>
+<script src="./script.js"></script>
+</body>
+</html>

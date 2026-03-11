@@ -1,0 +1,22 @@
+
+
+@mixin image($url){
+    background-image: url($url);
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
+@mixin hover($color, $text_color){
+    transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &:hover{
+        background-color: $color;
+        color: $text_color;
+    }
+
+    &:focus-visible{
+        background-color: $color;
+        color: $text_color;
+    }
+}
