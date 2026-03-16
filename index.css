@@ -20,7 +20,35 @@ header {
 }
 header .head_user {
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+header .head_user a {
+  width: 135px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  background-color: rgb(255, 36, 36);
+  border: none;
+  border-radius: 15px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  color: antiquewhite;
+  transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+header .head_user a:hover {
+  background-color: rgb(52, 166, 32);
+  color: white;
+}
+header .head_user a:focus-visible {
+  background-color: rgb(52, 166, 32);
+  color: white;
 }
 header .header_icons {
   display: flex;
@@ -40,7 +68,14 @@ header .morent a {
   color: inherit;
   text-decoration: none;
 }
-header .regi {
+header .register_in_login {
+  width: 135px;
+  height: 45px;
+  background-color: rgb(255, 36, 36);
+  border: none;
+  border-radius: 15px;
+}
+header .register_in_login a {
   width: 135px;
   height: 45px;
   display: flex;
@@ -58,17 +93,17 @@ header .regi {
   transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
-header .regi:hover {
+header .register_in_login a:hover {
   background-color: rgb(52, 166, 32);
   color: white;
 }
-header .regi:focus-visible {
+header .register_in_login a:focus-visible {
   background-color: rgb(52, 166, 32);
   color: white;
 }
 
 .reg_header {
-  display: flex;
+  display: none;
   width: 100%;
   height: 15vh;
   justify-content: space-between;
@@ -288,7 +323,96 @@ header .regi:focus-visible {
   justify-self: center;
 }
 
-.popular_main, .random_main {
+.filterforflex {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+.filterforflex .filter_pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.filterforflex .filter_pagination button {
+  width: 60px;
+  height: 60px;
+  background-color: rgb(255, 36, 36);
+  border: none;
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  color: antiquewhite;
+  transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.filterforflex .filter_pagination button:hover {
+  background-color: rgb(52, 166, 32);
+  color: white;
+}
+.filterforflex .filter_pagination button:focus-visible {
+  background-color: rgb(52, 166, 32);
+  color: white;
+}
+.filterforflex .filter_pagination button.active {
+  background-color: rgb(59, 131, 109);
+  color: white;
+}
+.filterforflex .filter_pagination button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.filterforflex .filter_pagination #filterPageIndicator {
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid rgb(55, 52, 52);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.main_pagination .main_page_btn {
+  width: 60px;
+  height: 60px;
+  background-color: rgb(255, 36, 36);
+  border: none;
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  color: antiquewhite;
+  transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.main_pagination .main_page_btn:hover {
+  background-color: rgb(52, 166, 32);
+  color: white;
+}
+.main_pagination .main_page_btn:focus-visible {
+  background-color: rgb(52, 166, 32);
+  color: white;
+}
+.main_pagination .main_page_btn.active {
+  background-color: rgb(59, 131, 109);
+  color: white;
+}
+.main_pagination .main_page_btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.popular_main, .random_main, .usercars, .filterd_cars {
   display: grid;
   grid-template-columns: repeat(4, minmax(200px, 1fr));
   gap: 20px;
@@ -296,14 +420,14 @@ header .regi:focus-visible {
   padding-right: 5%;
   margin-bottom: 7vh;
 }
-.popular_main .popular, .random_main .popular {
+.popular_main .popular, .random_main .popular, .usercars .popular, .filterd_cars .popular {
   background-color: rgb(241, 241, 241);
   border: 1px solid rgb(55, 52, 52);
   border-radius: 10px;
   overflow: hidden;
   height: 400px;
 }
-.popular_main .popular .cars, .random_main .popular .cars {
+.popular_main .popular .cars, .random_main .popular .cars, .usercars .popular .cars, .filterd_cars .popular .cars {
   width: 100%;
   height: 100%;
   align-self: center;
@@ -312,31 +436,35 @@ header .regi:focus-visible {
   align-items: center;
   padding: 10px;
 }
-.popular_main .popular .cars .cars_main, .random_main .popular .cars .cars_main {
+.popular_main .popular .cars .cars_main, .random_main .popular .cars .cars_main, .usercars .popular .cars .cars_main, .filterd_cars .popular .cars .cars_main {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
-.popular_main .popular .cars .cars_main .cars_1, .random_main .popular .cars .cars_main .cars_1 {
+.popular_main .popular .cars .cars_main .cars_1, .random_main .popular .cars .cars_main .cars_1, .usercars .popular .cars .cars_main .cars_1, .filterd_cars .popular .cars .cars_main .cars_1 {
   height: 15%;
   display: flex;
   justify-content: space-between;
 }
-.popular_main .popular .cars .cars_main .cars_1 .cars_1_1, .random_main .popular .cars .cars_main .cars_1 .cars_1_1 {
+.popular_main .popular .cars .cars_main .cars_1 .cars_1_1, .random_main .popular .cars .cars_main .cars_1 .cars_1_1, .usercars .popular .cars .cars_main .cars_1 .cars_1_1, .filterd_cars .popular .cars .cars_main .cars_1 .cars_1_1 {
   height: 100%;
   width: auto;
 }
-.popular_main .popular .cars .cars_main .cars_2, .random_main .popular .cars .cars_main .cars_2 {
+.popular_main .popular .cars .cars_main .cars_1 .fa-solid, .random_main .popular .cars .cars_main .cars_1 .fa-solid, .usercars .popular .cars .cars_main .cars_1 .fa-solid, .filterd_cars .popular .cars .cars_main .cars_1 .fa-solid {
+  cursor: pointer;
+  color: rgb(105, 105, 105);
+}
+.popular_main .popular .cars .cars_main .cars_2, .random_main .popular .cars .cars_main .cars_2, .usercars .popular .cars .cars_main .cars_2, .filterd_cars .popular .cars .cars_main .cars_2 {
   height: 58%;
   width: 100%;
 }
-.popular_main .popular .cars .cars_main .cars_2 .detals_1, .random_main .popular .cars .cars_main .cars_2 .detals_1 {
+.popular_main .popular .cars .cars_main .cars_2 .detals_1, .random_main .popular .cars .cars_main .cars_2 .detals_1, .usercars .popular .cars .cars_main .cars_2 .detals_1, .filterd_cars .popular .cars .cars_main .cars_2 .detals_1 {
   width: 100%;
   height: 100%;
   border-radius: 15px;
 }
-.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 {
+.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1, .usercars .popular .cars .cars_main .cars_2 .detals_1 .carusel1, .filterd_cars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 {
   width: 100%;
   height: 100%;
   display: flex;
@@ -345,7 +473,7 @@ header .regi:focus-visible {
   position: relative;
   border-radius: 15px;
 }
-.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b21, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b21 {
+.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b21, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b21, .usercars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b21, .filterd_cars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b21 {
   width: 40px;
   height: 40px;
   background-color: rgba(0, 0, 0, 0.4);
@@ -361,10 +489,10 @@ header .regi:focus-visible {
   justify-content: center;
   align-items: center;
 }
-.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b21:hover, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b21:hover {
+.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b21:hover, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b21:hover, .usercars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b21:hover, .filterd_cars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b21:hover {
   border: 1px solid rgb(255, 36, 36);
 }
-.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b11, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b11 {
+.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b11, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b11, .usercars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b11, .filterd_cars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b11 {
   width: 40px;
   height: 40px;
   background-color: rgba(0, 0, 0, 0.4);
@@ -380,50 +508,60 @@ header .regi:focus-visible {
   justify-content: center;
   align-items: center;
 }
-.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b11:hover, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b11:hover {
+.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b11:hover, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b11:hover, .usercars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b11:hover, .filterd_cars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b11:hover {
   border: 1px solid rgb(255, 36, 36);
 }
-.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 {
+.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1, .usercars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1, .filterd_cars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 {
   width: 100%;
   height: 100%;
 }
-.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car1, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car1 {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  background-image: url(./images/alexandros-athanasopoulos-GUFR1WsgCQQ-unsplash.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 15px;
-  border: 1px solid rgb(55, 52, 52);
-}
-.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car2, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car2 {
+.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car1, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car1, .usercars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car1, .filterd_cars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car1 {
+  display: block;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  background-image: url(./images/bmw_csl_3_0_8k-HD.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   border-radius: 15px;
   border: 1px solid rgb(55, 52, 52);
 }
-.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car3, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car3 {
+.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car1 img, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car1 img, .usercars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car1 img, .filterd_cars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car1 img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  background-image: url(./images/rolls-royce-phantom-series-ii-black-cars-black-background-3840x2160-8124.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  border-radius: 15px;
+}
+.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car2, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car2, .usercars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car2, .filterd_cars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car2 {
+  display: none;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 15px;
   border: 1px solid rgb(55, 52, 52);
 }
-.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots {
+.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car2 img, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car2 img, .usercars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car2 img, .filterd_cars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car2 img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 15px;
+}
+.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car3, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car3, .usercars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car3, .filterd_cars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car3 {
+  display: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  border: 1px solid rgb(55, 52, 52);
+}
+.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car3 img, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car3 img, .usercars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car3 img, .filterd_cars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car3 img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 15px;
+}
+.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots, .usercars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots, .filterd_cars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots {
   position: absolute;
   bottom: 10px;
   left: 50%;
@@ -431,52 +569,58 @@ header .regi:focus-visible {
   display: flex;
   gap: 10px;
 }
-.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots div, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots div {
+.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots div, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots div, .usercars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots div, .filterd_cars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots div {
   width: 10px;
   height: 10px;
   background-color: white;
   border-radius: 50%;
   opacity: 0.5;
 }
-.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots .active, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots .active {
+.popular_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots .active, .random_main .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots .active, .usercars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots .active, .filterd_cars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots .active {
   opacity: 1;
 }
-.popular_main .popular .cars .cars_main .cars_3, .random_main .popular .cars .cars_main .cars_3 {
+.popular_main .popular .cars .cars_main .cars_3, .random_main .popular .cars .cars_main .cars_3, .usercars .popular .cars .cars_main .cars_3, .filterd_cars .popular .cars .cars_main .cars_3 {
   height: 16%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.popular_main .popular .cars .cars_main .cars_3 .cars_3_1, .random_main .popular .cars .cars_main .cars_3 .cars_3_1 {
+.popular_main .popular .cars .cars_main .cars_3 .cars_3_1, .random_main .popular .cars .cars_main .cars_3 .cars_3_1, .usercars .popular .cars .cars_main .cars_3 .cars_3_1, .filterd_cars .popular .cars .cars_main .cars_3 .cars_3_1 {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
 }
-.popular_main .popular .cars .cars_main .cars_3 .cars_3_2, .random_main .popular .cars .cars_main .cars_3 .cars_3_2 {
+.popular_main .popular .cars .cars_main .cars_3 .cars_3_2, .random_main .popular .cars .cars_main .cars_3 .cars_3_2, .usercars .popular .cars .cars_main .cars_3 .cars_3_2, .filterd_cars .popular .cars .cars_main .cars_3 .cars_3_2 {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
 }
-.popular_main .popular .cars .cars_main .cars_3 .cars_3_2 svg, .random_main .popular .cars .cars_main .cars_3 .cars_3_2 svg {
+.popular_main .popular .cars .cars_main .cars_3 .cars_3_2 svg, .random_main .popular .cars .cars_main .cars_3 .cars_3_2 svg, .usercars .popular .cars .cars_main .cars_3 .cars_3_2 svg, .filterd_cars .popular .cars .cars_main .cars_3 .cars_3_2 svg {
   width: 20px;
   height: 20px;
   cursor: pointer;
 }
-.popular_main .popular .cars .cars_main .cars_3 .cars_3_3, .random_main .popular .cars .cars_main .cars_3 .cars_3_3 {
+.popular_main .popular .cars .cars_main .cars_3 .cars_3_3, .random_main .popular .cars .cars_main .cars_3 .cars_3_3, .usercars .popular .cars .cars_main .cars_3 .cars_3_3, .filterd_cars .popular .cars .cars_main .cars_3 .cars_3_3 {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
 }
-.popular_main .popular .cars .cars_main .cars_4, .random_main .popular .cars .cars_main .cars_4 {
+.popular_main .popular .cars .cars_main .cars_4, .random_main .popular .cars .cars_main .cars_4, .usercars .popular .cars .cars_main .cars_4, .filterd_cars .popular .cars .cars_main .cars_4 {
   height: 11%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.popular_main .popular .cars .cars_main .cars_4 a, .random_main .popular .cars .cars_main .cars_4 a {
+.popular_main .popular .cars .cars_main .cars_4 .details-button, .random_main .popular .cars .cars_main .cars_4 .details-button, .usercars .popular .cars .cars_main .cars_4 .details-button, .filterd_cars .popular .cars .cars_main .cars_4 .details-button {
+  width: 100px;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+.popular_main .popular .cars .cars_main .cars_4 .details-button a, .random_main .popular .cars .cars_main .cars_4 .details-button a, .usercars .popular .cars .cars_main .cars_4 .details-button a, .filterd_cars .popular .cars .cars_main .cars_4 .details-button a {
   background-color: rgb(255, 36, 36);
   height: 100%;
   display: flex;
@@ -486,6 +630,15 @@ header .regi:focus-visible {
   text-decoration: none;
   color: antiquewhite;
   border-radius: 10px;
+  transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.popular_main .popular .cars .cars_main .cars_4 .details-button a:hover, .random_main .popular .cars .cars_main .cars_4 .details-button a:hover, .usercars .popular .cars .cars_main .cars_4 .details-button a:hover, .filterd_cars .popular .cars .cars_main .cars_4 .details-button a:hover {
+  background-color: rgb(52, 166, 32);
+  color: white;
+}
+.popular_main .popular .cars .cars_main .cars_4 .details-button a:focus-visible, .random_main .popular .cars .cars_main .cars_4 .details-button a:focus-visible, .usercars .popular .cars .cars_main .cars_4 .details-button a:focus-visible, .filterd_cars .popular .cars .cars_main .cars_4 .details-button a:focus-visible {
+  background-color: rgb(52, 166, 32);
+  color: white;
 }
 
 .reg_main {
@@ -745,97 +898,108 @@ footer .footer_3 .folder_3_1 {
   width: 100%;
   height: auto;
   gap: 20px;
-  background-color: rgb(255, 241, 222);
 }
 .main_user .user_1 {
   align-self: flex-start;
   display: flex;
+  margin: 40px;
+  gap: 10px;
+}
+.main_user .user_1 .user_1_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.main_user .user_1 .user_1_info p {
+  font-size: 30px;
 }
 .main_user .user_2 {
   display: flex;
   align-self: center;
 }
 .main_user .user_2 p {
-  font-size: 20px;
+  font-size: 30px;
   position: relative;
+  padding: 20px;
 }
 .main_user .user_3 {
   display: flex;
   align-self: center;
+  padding: 20px;
 }
 .main_user .user_3 p {
-  font-size: 20px;
+  font-size: 30px;
 }
 .main_user .user_4 {
   display: flex;
   align-self: center;
+  padding: 20px;
 }
 .main_user .user_4 p {
-  font-size: 20px;
+  font-size: 30px;
 }
-
-.detals {
+.main_user .likedcars {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  gap: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-bottom: 7vh;
+}
+.main_user .likedcars .popular {
+  background-color: rgb(241, 241, 241);
+  border: 1px solid rgb(55, 52, 52);
+  border-radius: 10px;
+  overflow: hidden;
+  height: 400px;
+}
+.main_user .likedcars .popular .cars {
   width: 100%;
-  height: 85vh;
-  background-color: rgb(25, 25, 25);
+  height: 100%;
+  align-self: center;
+  display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40PX 20%;
-  gap: 30px;
-  color: antiquewhite;
+  padding: 10px;
 }
-.detals .detals_1 {
+.main_user .likedcars .popular .cars .cars_main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_1 {
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_1 .cars_1_1 {
+  height: 100%;
+  width: auto;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_1 .fa-solid {
+  cursor: pointer;
+  color: rgb(105, 105, 105);
+}
+.main_user .likedcars .popular .cars .cars_main .cars_2 {
+  height: 58%;
+  width: 100%;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_2 .detals_1 {
   width: 100%;
   height: 100%;
   border-radius: 15px;
 }
-.detals .detals_1 .carusel {
+.main_user .likedcars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 {
   width: 100%;
-  height: 80%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   border-radius: 15px;
 }
-.detals .detals_1 .carusel .allpic {
-  width: 200px;
-  height: 50px;
-  position: absolute;
-  top: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-.detals .detals_1 .carusel .allpic button {
-  width: 100%;
-  height: 100%;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-.detals .detals_1 .carusel .allpic button .img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 10px;
-  border: 1px solid rgb(55, 52, 52);
-}
-.detals .detals_1 .carusel .allpic button .img1 {
-  background-image: url(./images/alexandros-athanasopoulos-GUFR1WsgCQQ-unsplash.jpg);
-}
-.detals .detals_1 .carusel .allpic button .img2 {
-  background-image: url(./images/bmw_csl_3_0_8k-HD.jpg);
-}
-.detals .detals_1 .carusel .allpic button .img3 {
-  background-image: url(./images/rolls-royce-phantom-series-ii-black-cars-black-background-3840x2160-8124.jpg);
-}
-.detals .detals_1 .carusel .b2 {
+.main_user .likedcars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b21 {
   width: 40px;
   height: 40px;
   background-color: rgba(0, 0, 0, 0.4);
@@ -851,10 +1015,10 @@ footer .footer_3 .folder_3_1 {
   justify-content: center;
   align-items: center;
 }
-.detals .detals_1 .carusel .b2:hover {
+.main_user .likedcars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b21:hover {
   border: 1px solid rgb(255, 36, 36);
 }
-.detals .detals_1 .carusel .b1 {
+.main_user .likedcars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b11 {
   width: 40px;
   height: 40px;
   background-color: rgba(0, 0, 0, 0.4);
@@ -870,50 +1034,368 @@ footer .footer_3 .folder_3_1 {
   justify-content: center;
   align-items: center;
 }
-.detals .detals_1 .carusel .b1:hover {
+.main_user .likedcars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .b11:hover {
   border: 1px solid rgb(255, 36, 36);
 }
-.detals .detals_1 .carusel .main {
+.main_user .likedcars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 {
   width: 100%;
   height: 100%;
 }
-.detals .detals_1 .carusel .main .car1 {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  background-image: url(./images/alexandros-athanasopoulos-GUFR1WsgCQQ-unsplash.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 15px;
-  border: 1px solid rgb(55, 52, 52);
-}
-.detals .detals_1 .carusel .main .car2 {
+.main_user .likedcars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car1 {
+  display: block;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  background-image: url(./images/bmw_csl_3_0_8k-HD.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   border-radius: 15px;
   border: 1px solid rgb(55, 52, 52);
 }
-.detals .detals_1 .carusel .main .car3 {
+.main_user .likedcars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car1 img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  background-image: url(./images/rolls-royce-phantom-series-ii-black-cars-black-background-3840x2160-8124.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  border-radius: 15px;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car2 {
+  display: none;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 15px;
   border: 1px solid rgb(55, 52, 52);
 }
-.detals .detals_2 {
+.main_user .likedcars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car2 img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 15px;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car3 {
+  display: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  border: 1px solid rgb(55, 52, 52);
+}
+.main_user .likedcars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .main1 .car3 img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 15px;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots div {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_2 .detals_1 .carusel1 .dots .active {
+  opacity: 1;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_3 {
+  height: 16%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_3 .cars_3_1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_3 .cars_3_2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_3 .cars_3_2 svg {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_3 .cars_3_3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_4 {
+  height: 11%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_4 .details-button {
+  width: 100px;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_4 .details-button a {
+  background-color: rgb(255, 36, 36);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  text-decoration: none;
+  color: antiquewhite;
+  border-radius: 10px;
+  transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.main_user .likedcars .popular .cars .cars_main .cars_4 .details-button a:hover {
+  background-color: rgb(52, 166, 32);
+  color: white;
+}
+.main_user .likedcars .popular .cars .cars_main .cars_4 .details-button a:focus-visible {
+  background-color: rgb(52, 166, 32);
+  color: white;
+}
+.main_user .rented {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  gap: 20px;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-bottom: 7vh;
+}
+.main_user .rented .rented1 {
+  background-color: rgb(241, 241, 241);
+  border: 1px solid rgb(55, 52, 52);
+  border-radius: 10px;
+  overflow: hidden;
+  height: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.main_user .rented .rented1 .rentedcar1 {
+  display: flex;
+  align-items: flex-end;
+  border: none;
+  gap: 10px;
+}
+.main_user .rented .rented1 .rentedcar1 .marc, .main_user .rented .rented1 .rentedcar1 .model {
+  display: block;
+  font-size: 25px;
+  font-weight: bold;
+}
+.main_user .rented .rented1 .rentedcar2 {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  font-size: 23px;
+}
+.main_user .rented .rented1 .rentedcar2 .underline {
+  border-bottom: 1px dotted rgb(55, 52, 52);
+  width: 100%;
+}
+.main_user .rented .rented1 .rentedcar3 {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  font-size: 23px;
+}
+.main_user .rented .rented1 .rentedcar3 .underline {
+  border-bottom: 1px dotted rgb(55, 52, 52);
+  width: 100%;
+}
+.main_user .rented .rented1 .rentedcar4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border: none;
+  font-size: 23px;
+}
+.main_user .rented .rented1 .rentedcar4 .underline {
+  border-bottom: 1px dotted rgb(55, 52, 52);
+  width: 100%;
+}
+.main_user .rented .rented1 .rentedcar4 .price {
+  white-space: nowrap;
+}
+
+.main_detals {
+  display: block;
+}
+.main_detals .detals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 85vh;
+  background-color: rgb(25, 25, 25);
+  justify-content: center;
+  align-items: center;
+  padding: 40PX 20%;
+  gap: 30px;
+  color: antiquewhite;
+}
+.main_detals .detals .detals_1 {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+.main_detals .detals .detals_1 .carusel {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 15px;
+}
+.main_detals .detals .detals_1 .carusel .allpic {
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  top: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.main_detals .detals .detals_1 .carusel .allpic button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.main_detals .detals .detals_1 .carusel .allpic button .img1 {
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+}
+.main_detals .detals .detals_1 .carusel .allpic button .img1 img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 15px;
+}
+.main_detals .detals .detals_1 .carusel .allpic button .img2 {
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+}
+.main_detals .detals .detals_1 .carusel .allpic button .img2 img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 15px;
+}
+.main_detals .detals .detals_1 .carusel .allpic button .img3 {
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+}
+.main_detals .detals .detals_1 .carusel .allpic button .img3 img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 15px;
+}
+.main_detals .detals .detals_1 .carusel .b2 {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-right: 10px;
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main_detals .detals .detals_1 .carusel .b2:hover {
+  border: 1px solid rgb(255, 36, 36);
+}
+.main_detals .detals .detals_1 .carusel .b1 {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  margin-left: 10px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main_detals .detals .detals_1 .carusel .b1:hover {
+  border: 1px solid rgb(255, 36, 36);
+}
+.main_detals .detals .detals_1 .carusel .main {
+  width: 100%;
+  height: 100%;
+}
+.main_detals .detals .detals_1 .carusel .main .car1 {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  border: 1px solid rgb(55, 52, 52);
+}
+.main_detals .detals .detals_1 .carusel .main .car1 img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main_detals .detals .detals_1 .carusel .main .car2 {
+  display: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  border: 1px solid rgb(55, 52, 52);
+}
+.main_detals .detals .detals_1 .carusel .main .car2 img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main_detals .detals .detals_1 .carusel .main .car3 {
+  display: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  border: 1px solid rgb(55, 52, 52);
+}
+.main_detals .detals .detals_1 .carusel .main .car3 img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main_detals .detals .detals_2 {
   width: 100%;
   height: 100%;
   padding: 20px;
@@ -921,13 +1403,22 @@ footer .footer_3 .folder_3_1 {
   flex-direction: column;
   gap: 20px;
 }
-.detals .detals_2 .detals_2_1 {
+.main_detals .detals .detals_2 .detals_2_5 {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 40px;
 }
-.detals .detals_2 .detals_2_1 a {
+.main_detals .detals .detals_2 .detals_2_5 p {
+  font-size: 20px;
+}
+.main_detals .detals .detals_2 .detals_2_5 .rent-button {
+  width: 100px;
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+}
+.main_detals .detals .detals_2 .detals_2_5 .rent-button a {
   background-color: rgb(255, 36, 36);
   height: 100%;
   display: flex;
@@ -937,197 +1428,250 @@ footer .footer_3 .folder_3_1 {
   text-decoration: none;
   color: antiquewhite;
   border-radius: 15px;
+  transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.detals .detals_2 .detals_1_1 {
+.main_detals .detals .detals_2 .detals_2_5 .rent-button a:hover {
+  background-color: rgb(52, 166, 32);
+  color: white;
+}
+.main_detals .detals .detals_2 .detals_2_5 .rent-button a:focus-visible {
+  background-color: rgb(52, 166, 32);
+  color: white;
+}
+.main_detals .detals .detals_2 .detals_1_1 {
   font-size: 20px;
-  font-weight: bold;
-}
-.detals .detals_2 .detals_1_2 {
-  font-size: 30px;
-  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
   margin-top: -20px;
 }
-.detals .detals_2 .detals_1_3 {
-  font-size: 20px;
+.main_detals .detals .detals_2 .detals_1_1 p {
+  white-space: nowrap;
+  font-size: 25px;
 }
-.detals .detals_2 .detals_2_1 {
+.main_detals .detals .detals_2 .detals_1_1 .underline {
+  width: 100%;
+  height: 60%;
+  border-bottom: dotted 1px antiquewhite;
+}
+.main_detals .detals .detals_2 .detals_1_2 {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+.main_detals .detals .detals_2 .detals_1_2 p {
+  white-space: nowrap;
+  font-size: 30px;
+}
+.main_detals .detals .detals_2 .detals_1_2 .underline {
+  width: 100%;
+  height: 60%;
+  border-bottom: dotted 1px antiquewhite;
+}
+.main_detals .detals .detals_2 .detals_2_1 {
   font-size: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
 }
-.detals .detals_2 .detals_2_1 p {
+.main_detals .detals .detals_2 .detals_2_1 p {
   white-space: nowrap;
 }
-.detals .detals_2 .detals_2_1 .underline {
+.main_detals .detals .detals_2 .detals_2_1 .underline {
   width: 100%;
   height: 60%;
   border-bottom: dotted 1px antiquewhite;
 }
-.detals .detals_2 .detals_2_2 {
+.main_detals .detals .detals_2 .detals_2_2 {
   font-size: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
 }
-.detals .detals_2 .detals_2_2 p {
+.main_detals .detals .detals_2 .detals_2_2 p {
   white-space: nowrap;
 }
-.detals .detals_2 .detals_2_2 .underline {
+.main_detals .detals .detals_2 .detals_2_2 .underline {
   width: 100%;
   height: 60%;
   border-bottom: dotted 1px antiquewhite;
 }
-.detals .detals_2 .detals_2_3 {
+.main_detals .detals .detals_2 .detals_2_3 {
   font-size: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
 }
-.detals .detals_2 .detals_2_3 p {
+.main_detals .detals .detals_2 .detals_2_3 p {
   white-space: nowrap;
 }
-.detals .detals_2 .detals_2_3 .underline {
+.main_detals .detals .detals_2 .detals_2_3 .underline {
   width: 100%;
   height: 60%;
   border-bottom: dotted 1px antiquewhite;
 }
-.detals .detals_2 .detals_2_4 {
+.main_detals .detals .detals_2 .detals_2_4 {
   font-size: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
 }
-.detals .detals_2 .detals_2_4 p {
+.main_detals .detals .detals_2 .detals_2_4 p {
   white-space: nowrap;
 }
-.detals .detals_2 .detals_2_4 .underline {
+.main_detals .detals .detals_2 .detals_2_4 .underline {
   width: 100%;
   height: 60%;
   border-bottom: dotted 1px antiquewhite;
 }
-.detals .detals_2 form {
+.main_detals .detals .detals_2 form {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-top: 20px;
 }
-.detals .detals_2 form .range_1 {
+.main_detals .detals .detals_2 form .range_1 {
   display: flex;
   align-items: center;
   gap: 10px;
   width: 100%;
 }
-.detals .detals_2 form .range_1 .days_range {
+.main_detals .detals .detals_2 form .range_1 .days_range {
   width: 100%;
   max-width: 100%;
   flex: 1;
 }
 
-.filter {
+.filter_main {
+  display: flex;
+}
+.filter_main .filter {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 300px;
-  height: 100vh;
   background-color: powderblue;
+  gap: 30px;
+  width: 300px;
+  min-height: 85vh;
   padding: 20px;
-}
-.filter > div form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.filter > div form label {
-  font-weight: 600;
-}
-.filter > div form select,
-.filter > div form input[type=number],
-.filter > div form .custom-select-button {
-  width: 100%;
-  height: 40px;
-  border-radius: 10px;
-  border: 1px solid darkviolet;
-  background-color: white;
-  font-size: 14px;
-  padding: 0 12px;
-  color: #222;
-}
-.filter > div form input[type=number]::-webkit-outer-spin-button,
-.filter > div form input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-.filter .native-select-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-  white-space: nowrap;
-}
-.filter .custom-select {
-  position: relative;
-  width: 100%;
-}
-.filter .custom-select .custom-select-button {
-  cursor: pointer;
-  text-align: left;
-  padding: 0 12px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
-.filter .custom-select .custom-select-button::after {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-right: 2px solid #333;
-  border-bottom: 2px solid #333;
-  transform: rotate(45deg);
-  transition: transform 0.2s ease;
-  margin-top: -4px;
-}
-.filter .custom-select.open .custom-select-button::after {
-  transform: rotate(-135deg);
-  margin-top: 2px;
-}
-.filter .custom-select .custom-select-options {
-  list-style: none;
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
+.filter_main .filter .filter_capacity {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
-  background-color: white;
-  border: 1px solid darkviolet;
+}
+.filter_main .filter .filter_capacity p {
+  font-size: 20px;
+}
+.filter_main .filter .filter_capacity input {
+  width: 100%;
+  height: 45px;
   border-radius: 10px;
-  max-height: 220px;
-  overflow-y: auto;
-  display: none;
-  z-index: 30;
+  border-color: darkviolet;
+  padding-left: 10px;
+  font-size: 20px;
 }
-.filter .custom-select .custom-select-options li {
-  padding: 10px 12px;
-  cursor: pointer;
-  font-size: 14px;
+.filter_main .filter .filter_capacity input:focus,
+.filter_main .filter .filter_capacity input:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  border-color: red;
+  box-shadow: none;
 }
-.filter .custom-select .custom-select-options li:hover {
-  background-color: rgb(235, 245, 255);
+.filter_main .filter .startYear {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
 }
-.filter .custom-select .custom-select-options li.active {
-  background-color: rgb(255, 236, 236);
-  font-weight: 600;
+.filter_main .filter .startYear p {
+  font-size: 20px;
 }
-.filter .custom-select.open .custom-select-options {
-  display: block;
+.filter_main .filter .startYear input {
+  width: 100%;
+  height: 45px;
+  border-radius: 10px;
+  border-color: darkviolet;
+  padding-left: 10px;
+  font-size: 20px;
+}
+.filter_main .filter .startYear input:focus,
+.filter_main .filter .startYear input:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  border-color: red;
+  box-shadow: none;
+}
+.filter_main .filter .endYear {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.filter_main .filter .endYear input {
+  width: 100%;
+  height: 45px;
+  border-radius: 10px;
+  border-color: darkviolet;
+  padding-left: 10px;
+  font-size: 20px;
+}
+.filter_main .filter .endYear input:focus,
+.filter_main .filter .endYear input:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  border-color: red;
+  box-shadow: none;
+}
+.filter_main .filter .city {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.filter_main .filter .city p {
+  font-size: 20px;
+}
+.filter_main .filter .city input {
+  width: 100%;
+  height: 45px;
+  border-radius: 10px;
+  border-color: darkviolet;
+  padding-left: 10px;
+  font-size: 20px;
+}
+.filter_main .filter .city input:focus,
+.filter_main .filter .city input:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  border-color: red;
+  box-shadow: none;
+}
+.filter_main .filter .filter_in_filter {
+  width: 60%;
+  height: 42px;
+  border-radius: 10px;
+  border-color: darkviolet;
+  padding-left: 0;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  background-color: rgb(255, 36, 36);
+  color: rgb(200, 219, 255);
+  order: 10;
+  align-self: center;
+  margin-top: 4px;
 }
 
 .rent {
@@ -1202,6 +1746,13 @@ footer .footer_3 .folder_3_1 {
   border-color: darkviolet;
   padding-left: 10px;
 }
+.add .add_1 .marka input:focus,
+.add .add_1 .marka input:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  border-color: red;
+  box-shadow: none;
+}
 .add .add_1 .model input {
   width: 400px;
   height: 45px;
@@ -1209,12 +1760,26 @@ footer .footer_3 .folder_3_1 {
   border-color: darkviolet;
   padding-left: 10px;
 }
+.add .add_1 .model input:focus,
+.add .add_1 .model input:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  border-color: red;
+  box-shadow: none;
+}
 .add .add_1 .year input {
   width: 400px;
   height: 45px;
   border-radius: 10px;
   border-color: darkviolet;
   padding-left: 10px;
+}
+.add .add_1 .year input:focus,
+.add .add_1 .year input:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  border-color: red;
+  box-shadow: none;
 }
 .add .add_1 .image {
   display: flex;
@@ -1268,12 +1833,61 @@ footer .footer_3 .folder_3_1 {
   font-weight: 700;
   cursor: pointer;
 }
+.add .add_1 .img_link1 input {
+  width: 400px;
+  height: 45px;
+  border-radius: 10px;
+  border-color: darkviolet;
+  padding-left: 10px;
+}
+.add .add_1 .img_link1 input:focus,
+.add .add_1 .img_link1 input:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  border-color: red;
+  box-shadow: none;
+}
+.add .add_1 .img_link2 input {
+  width: 400px;
+  height: 45px;
+  border-radius: 10px;
+  border-color: darkviolet;
+  padding-left: 10px;
+}
+.add .add_1 .img_link2 input:focus,
+.add .add_1 .img_link2 input:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  border-color: red;
+  box-shadow: none;
+}
+.add .add_1 .img_link3 input {
+  width: 400px;
+  height: 45px;
+  border-radius: 10px;
+  border-color: darkviolet;
+  padding-left: 10px;
+}
+.add .add_1 .img_link3 input:focus,
+.add .add_1 .img_link3 input:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  border-color: red;
+  box-shadow: none;
+}
 .add .add_1 .price input {
   width: 400px;
   height: 45px;
   border-radius: 10px;
   border-color: darkviolet;
   padding-left: 10px;
+}
+.add .add_1 .price input:focus,
+.add .add_1 .price input:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  border-color: red;
+  box-shadow: none;
 }
 .add .add_1 .capacity input {
   width: 400px;
@@ -1282,12 +1896,94 @@ footer .footer_3 .folder_3_1 {
   border-color: darkviolet;
   padding-left: 10px;
 }
-.add .add_1 .transmission input {
+.add .add_1 .capacity input:focus,
+.add .add_1 .capacity input:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  border-color: red;
+  box-shadow: none;
+}
+.add .add_1 .transmission {
   width: 400px;
+}
+.add .add_1 .transmission .native-select-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.add .add_1 .transmission .custom-select {
+  position: relative;
+  width: 100%;
+}
+.add .add_1 .transmission .custom-select .custom-select-button {
+  width: 100%;
   height: 45px;
   border-radius: 10px;
-  border-color: darkviolet;
-  padding-left: 10px;
+  border: 1px solid darkviolet;
+  padding: 0 14px;
+  background-color: white;
+  color: #222;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+.add .add_1 .transmission .custom-select .custom-select-button::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid #333;
+  border-bottom: 2px solid #333;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  margin-top: -4px;
+}
+.add .add_1 .transmission .custom-select .custom-select-button:focus, .add .add_1 .transmission .custom-select .custom-select-button:focus-visible {
+  outline: none;
+  border-color: red;
+  box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.15);
+}
+.add .add_1 .transmission .custom-select .custom-select-options {
+  list-style: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid darkviolet;
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  display: none;
+  z-index: 40;
+}
+.add .add_1 .transmission .custom-select .custom-select-options li {
+  padding: 12px 14px;
+  cursor: pointer;
+  color: #222;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.add .add_1 .transmission .custom-select .custom-select-options li:hover, .add .add_1 .transmission .custom-select .custom-select-options li:focus, .add .add_1 .transmission .custom-select .custom-select-options li:focus-visible {
+  background-color: rgb(255, 236, 236);
+  color: #111;
+  outline: none;
+}
+.add .add_1 .transmission .custom-select.open .custom-select-button {
+  border-color: red;
+}
+.add .add_1 .transmission .custom-select.open .custom-select-button::after {
+  transform: rotate(-135deg);
+  margin-top: 2px;
+}
+.add .add_1 .transmission .custom-select.open .custom-select-options {
+  display: block;
 }
 .add .add_1 .fuel input {
   width: 400px;
@@ -1296,12 +1992,26 @@ footer .footer_3 .folder_3_1 {
   border-color: darkviolet;
   padding-left: 10px;
 }
+.add .add_1 .fuel input:focus,
+.add .add_1 .fuel input:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  border-color: red;
+  box-shadow: none;
+}
 .add .add_1 .city input {
   width: 400px;
   height: 45px;
   border-radius: 10px;
   border-color: darkviolet;
   padding-left: 10px;
+}
+.add .add_1 .city input:focus,
+.add .add_1 .city input:focus-visible {
+  outline: none;
+  outline-offset: 2px;
+  border-color: red;
+  box-shadow: none;
 }
 .add .add_1 .save {
   width: 400px;
@@ -1338,6 +2048,36 @@ footer .footer_3 .folder_3_1 {
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .filter_main {
+    flex-direction: column;
+  }
+  .filter_main .filter {
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px 5%;
+  }
+  .filter_main .filter .filter_capacity, .filter_main .filter .startYear, .filter_main .filter .endYear, .filter_main .filter .city {
+    width: 100%;
+  }
+  .filter_main .filter .filter_in_filter {
+    width: 200px;
+    height: 40px;
+    font-size: 17px;
+    display: block;
+    margin: 0 auto;
+  }
+  .filter_main .filterforflex {
+    width: 100%;
+  }
+  .filter_main .filterforflex .filterd_cars {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 320px));
+    justify-content: center;
+  }
   .main_div .main .main_pic {
     width: 60%;
   }
@@ -1347,12 +2087,49 @@ footer .footer_3 .folder_3_1 {
   .main_div .main .min_ls ul li {
     font-size: 15px;
   }
-  .popular_main, .random_main {
+  .popular_main, .random_main, .usercars {
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 350px));
+  }
+  .main_user .user_1 {
+    margin: 30px;
+  }
+  .main_user .user_2 p, .main_user .user_3 p, .main_user .user_4 p {
+    font-size: 26px;
+  }
+  .main_user .likedcars, .main_user .rented {
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(200px, 350px));
   }
 }
 @media screen and (min-width: 769px) and (max-width: 1024px) {
+  .filter_main {
+    flex-direction: column;
+  }
+  .filter_main .filter {
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 5%;
+  }
+  .filter_main .filter .filter_capacity, .filter_main .filter .startYear, .filter_main .filter .endYear, .filter_main .filter .city {
+    width: 100%;
+  }
+  .filter_main .filter .filter_in_filter {
+    width: 200px;
+    align-self: center;
+    margin-top: 0;
+  }
+  .filter_main .filterforflex {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .filter_main .filterforflex .filterd_cars {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 350px));
+  }
   .detals {
     padding: 40px 10%;
   }
@@ -1379,7 +2156,17 @@ footer .footer_3 .folder_3_1 {
   .main_div .main .min_ls ul li {
     font-size: 15px;
   }
-  .popular_main, .random_main {
+  .popular_main, .random_main, .usercars {
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 350px));
+  }
+  .main_user .user_1 {
+    margin: 24px;
+  }
+  .main_user .user_2 p, .main_user .user_3 p, .main_user .user_4 p {
+    font-size: 24px;
+  }
+  .main_user .likedcars, .main_user .rented {
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(200px, 350px));
   }
@@ -1411,6 +2198,67 @@ footer .footer_3 .folder_3_1 {
   }
 }
 @media screen and (min-width: 501px) and (max-width: 768px) {
+  .filter_main {
+    flex-direction: column;
+  }
+  .filter_main .filter {
+    width: 100%;
+    min-height: auto;
+    padding: 20px;
+  }
+  .filter_main .filter .filter_capacity, .filter_main .filter .startYear, .filter_main .filter .endYear, .filter_main .filter .city {
+    width: 100%;
+  }
+  .filter_main .filter .filter_in_filter {
+    width: 100%;
+    max-width: 260px;
+    align-self: center;
+    margin-top: 8px;
+  }
+  .filter_main .filterforflex {
+    width: 100%;
+  }
+  .filter_main .filterforflex .filterd_cars {
+    grid-template-columns: repeat(1, minmax(150px, 1fr));
+  }
+  header, .reg_header {
+    flex-direction: column;
+    height: 200px;
+    justify-content: center;
+    gap: 20px;
+  }
+  header .head_user, .reg_header .head_user {
+    display: flex;
+    flex-direction: column;
+  }
+  header .morent, .reg_header .morent {
+    font-size: 40px;
+  }
+  header .regi, .reg_header .regi {
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+  }
+  .header_holder {
+    background-color: black;
+    height: 200px;
+  }
+  .filterforflex .filter_pagination {
+    gap: 10px;
+  }
+  .filterforflex .filter_pagination button {
+    width: 48px;
+    height: 48px;
+    font-size: 14px;
+  }
+  .main_pagination {
+    gap: 10px;
+  }
+  .main_pagination .main_page_btn {
+    width: 48px;
+    height: 48px;
+    font-size: 14px;
+  }
   .reg_header .header_icons {
     display: none;
   }
@@ -1484,7 +2332,18 @@ footer .footer_3 .folder_3_1 {
   .main_div .main .min_ls ul li {
     font-size: 15px;
   }
-  .popular_main, .random_main {
+  .popular_main, .random_main, .usercars {
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 350px));
+  }
+  .main_user .user_1 {
+    margin: 20px;
+  }
+  .main_user .user_2 p, .main_user .user_3 p, .main_user .user_4 p {
+    font-size: 22px;
+    text-align: center;
+  }
+  .main_user .likedcars, .main_user .rented {
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(200px, 350px));
   }
@@ -1548,11 +2407,56 @@ footer .footer_3 .folder_3_1 {
   }
 }
 @media screen and (min-width: 401px) and (max-width: 500px) {
+  .filter_main {
+    flex-direction: column;
+  }
+  .filter_main .filter {
+    width: 100%;
+    min-height: auto;
+    padding: 16px;
+  }
+  .filter_main .filter .filter_capacity, .filter_main .filter .startYear, .filter_main .filter .endYear, .filter_main .filter .city {
+    width: 100%;
+  }
+  .filter_main .filter .filter_in_filter {
+    width: 100%;
+    max-width: 240px;
+    align-self: center;
+    margin-top: 8px;
+  }
+  .filter_main .filterforflex {
+    width: 100%;
+  }
+  .filter_main .filterforflex .filterd_cars {
+    grid-template-columns: repeat(1, minmax(150px, 1fr));
+  }
+  .filterforflex .filter_pagination {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .filterforflex .filter_pagination button {
+    width: 42px;
+    height: 42px;
+    font-size: 13px;
+  }
+  .main_pagination {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .main_pagination .main_page_btn {
+    width: 42px;
+    height: 42px;
+    font-size: 13px;
+  }
   header, .reg_header {
     flex-direction: column;
-    height: 150px;
+    height: 200px;
     justify-content: center;
     gap: 20px;
+  }
+  header .head_user, .reg_header .head_user {
+    display: flex;
+    flex-direction: column;
   }
   header .morent, .reg_header .morent {
     font-size: 40px;
@@ -1561,6 +2465,13 @@ footer .footer_3 .folder_3_1 {
     width: 120px;
     height: 40px;
     font-size: 15px;
+  }
+  .header_holder {
+    background-color: black;
+    height: 200px;
+  }
+  .reg_header {
+    height: 180px;
   }
   .reg_header .header_icons {
     display: none;
@@ -1624,9 +2535,23 @@ footer .footer_3 .folder_3_1 {
   .main_div .main .min_ls ul li {
     font-size: 15px;
   }
-  .popular_main, .random_main {
+  .popular_main, .random_main, .usercars {
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(200px, 350px));
+  }
+  .main_user .user_1 {
+    margin: 14px;
+  }
+  .main_user .user_2 p, .main_user .user_3 p, .main_user .user_4 p {
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+  }
+  .main_user .likedcars, .main_user .rented, .main_user .usercars {
+    justify-content: center;
+    grid-template-columns: repeat(1, minmax(150px, 1fr));
+    padding-left: 4%;
+    padding-right: 4%;
   }
   footer {
     flex-direction: column;
@@ -1697,6 +2622,79 @@ footer .footer_3 .folder_3_1 {
 }
 @media screen and (max-width: 400px) {
   header, .reg_header {
+    padding-top: 20px;
+    flex-direction: column;
+    height: 200px;
+    justify-content: center;
+    gap: 20px;
+  }
+  header .head_user, .reg_header .head_user {
+    display: flex;
+    flex-direction: column;
+  }
+  header .morent, .reg_header .morent {
+    font-size: 40px;
+  }
+  header .regi, .reg_header .regi {
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+  }
+  header .header_holder {
+    background-color: black;
+    height: 200px;
+  }
+  .filter_main {
+    flex-direction: column;
+  }
+  .filter_main .filter {
+    width: 100%;
+    min-height: auto;
+    padding: 14px;
+  }
+  .filter_main .filter .filter_capacity, .filter_main .filter .startYear, .filter_main .filter .endYear, .filter_main .filter .city {
+    width: 100%;
+  }
+  .filter_main .filter .filter_capacity p, .filter_main .filter .startYear p, .filter_main .filter .endYear p, .filter_main .filter .city p {
+    font-size: 18px;
+  }
+  .filter_main .filter .filter_capacity input, .filter_main .filter .startYear input, .filter_main .filter .endYear input, .filter_main .filter .city input {
+    font-size: 16px;
+    height: 42px;
+  }
+  .filter_main .filter .filter_in_filter {
+    width: 100%;
+    max-width: 220px;
+    height: 42px;
+    font-size: 20px;
+    align-self: center;
+    margin-top: 8px;
+  }
+  .filter_main .filterforflex {
+    width: 100%;
+  }
+  .filter_main .filterforflex .filterd_cars {
+    grid-template-columns: repeat(1, minmax(150px, 1fr));
+  }
+  .filterforflex .filter_pagination {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .filterforflex .filter_pagination button {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+  .main_pagination {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .main_pagination .main_page_btn {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+  header, .reg_header {
     flex-direction: column;
     height: 150px;
     justify-content: center;
@@ -1747,7 +2745,7 @@ footer .footer_3 .folder_3_1 {
     pointer-events: auto;
   }
   .header_holder {
-    height: 20vh;
+    height: 15vh;
   }
   .reg_2 {
     flex-direction: column;
@@ -1781,8 +2779,33 @@ footer .footer_3 .folder_3_1 {
   .main_div .main .min_ls ul li {
     font-size: 15px;
   }
-  .popular_main, .random_main {
+  .popular_main, .random_main, .filterd_cars, .usercars, .likedcars {
     grid-template-columns: repeat(1, minmax(150px, 1fr));
+  }
+  .popular_main .popular .cars .cars_main .cars_3, .random_main .popular .cars .cars_main .cars_3, .filterd_cars .popular .cars .cars_main .cars_3, .usercars .popular .cars .cars_main .cars_3, .likedcars .popular .cars .cars_main .cars_3 {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .main_user .user_1 {
+    margin: 10px;
+    align-self: center;
+  }
+  .main_user .user_2 p, .main_user .user_3 p, .main_user .user_4 p {
+    font-size: 18px;
+    text-align: center;
+    padding: 8px;
+  }
+  .main_user .likedcars, .main_user .rented, .main_user .usercars {
+    grid-template-columns: repeat(1, minmax(150px, 1fr));
+    padding-left: 4%;
+    padding-right: 4%;
+    gap: 14px;
+  }
+  .main_user .likedcars .rented1 .rentedcar1 .marc, .main_user .likedcars .rented1 .rentedcar1 .model, .main_user .rented .rented1 .rentedcar1 .marc, .main_user .rented .rented1 .rentedcar1 .model, .main_user .usercars .rented1 .rentedcar1 .marc, .main_user .usercars .rented1 .rentedcar1 .model {
+    font-size: 14px;
+  }
+  .main_user .likedcars .rented1 .rentedcar2 p, .main_user .likedcars .rented1 .rentedcar3 p, .main_user .likedcars .rented1 .rentedcar4 p, .main_user .rented .rented1 .rentedcar2 p, .main_user .rented .rented1 .rentedcar3 p, .main_user .rented .rented1 .rentedcar4 p, .main_user .usercars .rented1 .rentedcar2 p, .main_user .usercars .rented1 .rentedcar3 p, .main_user .usercars .rented1 .rentedcar4 p {
+    font-size: 14px;
   }
   footer {
     flex-direction: column;
@@ -1931,6 +2954,9 @@ footer .footer_3 .folder_3_1 {
     border-radius: 10px;
     border-color: darkviolet;
     padding-left: 10px;
+  }
+  .add .add_1 .transmission {
+    width: 200px;
   }
   .add .add_1 .image {
     width: 200px;

@@ -10,7 +10,7 @@
     <header class="reg_header">
         <div class="morent"><a href="index.html">MORENT</a></div>
         <div class="header_icons">
-            <a href="">
+            <a href="./add.html">
                 <svg  fill="antiquewhite" height="20px" width="20px" version="1.1" id="Capa_1" viewBox="0 0 330 330" xml:space="preserve">
                 <g>
                 <path d="M281.672,48.328C250.508,17.163,209.073,0,164.999,0C120.927,0,79.492,17.163,48.328,48.328   c-64.333,64.334-64.333,169.011,0,233.345C79.492,312.837,120.927,330,165,330c44.073,0,85.508-17.163,116.672-48.328   C346.005,217.339,346.005,112.661,281.672,48.328z M260.46,260.46C234.961,285.957,201.06,300,165,300   c-36.06,0-69.961-14.043-95.46-39.54c-52.636-52.637-52.636-138.282,0-190.919C95.039,44.042,128.94,30,164.999,30   c36.06,0,69.961,14.042,95.46,39.54C313.095,122.177,313.095,207.823,260.46,260.46z"/>
@@ -23,7 +23,7 @@
                 <path d="M7.5 19C8.15503 20.7478 9.92246 22 12 22C14.0775 22 15.845 20.7478 16.5 19" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
                 </svg>
             </a>
-            <a href="">
+            <a href="./user.html">
                 <svg fill="antiquewhite" height="20px" width="20px" version="1.1" id="Capa_1" viewBox="0 0 262.394 262.394" xml:space="preserve">
                 <g>
                 <path d="M245.63,103.39h-9.91c-2.486-9.371-6.197-18.242-10.955-26.432l7.015-7.015c6.546-6.546,6.546-17.159,0-23.705   l-15.621-15.621c-6.546-6.546-17.159-6.546-23.705,0l-7.015,7.015c-8.19-4.758-17.061-8.468-26.432-10.955v-9.914   C159.007,7.505,151.502,0,142.244,0h-22.091c-9.258,0-16.763,7.505-16.763,16.763v9.914c-9.37,2.486-18.242,6.197-26.431,10.954   l-7.016-7.015c-6.546-6.546-17.159-6.546-23.705,0.001L30.618,46.238c-6.546,6.546-6.546,17.159,0,23.705l7.014,7.014   c-4.758,8.19-8.469,17.062-10.955,26.433h-9.914c-9.257,0-16.762,7.505-16.762,16.763v22.09c0,9.258,7.505,16.763,16.762,16.763   h9.914c2.487,9.371,6.198,18.243,10.956,26.433l-7.015,7.015c-6.546,6.546-6.546,17.159,0,23.705l15.621,15.621   c6.546,6.546,17.159,6.546,23.705,0l7.016-7.016c8.189,4.758,17.061,8.469,26.431,10.955v9.913c0,9.258,7.505,16.763,16.763,16.763   h22.091c9.258,0,16.763-7.505,16.763-16.763v-9.913c9.371-2.487,18.242-6.198,26.432-10.956l7.016,7.017   c6.546,6.546,17.159,6.546,23.705,0l15.621-15.621c3.145-3.144,4.91-7.407,4.91-11.853s-1.766-8.709-4.91-11.853l-7.016-7.016   c4.758-8.189,8.468-17.062,10.955-26.432h9.91c9.258,0,16.763-7.505,16.763-16.763v-22.09   C262.393,110.895,254.888,103.39,245.63,103.39z M131.198,191.194c-33.083,0-59.998-26.915-59.998-59.997   c0-33.083,26.915-59.998,59.998-59.998s59.998,26.915,59.998,59.998C191.196,164.279,164.281,191.194,131.198,191.194z"/>
@@ -76,9 +76,9 @@
     </header>
     <div class="header_holder"></div>
     <div class="add">
-        <div class="add_1">
-            <form action="" class="marka">
-                <input list="marks" name="mark" id="mark" placeholder="მარკა">
+        <form class="add_1" id="addCarForm">
+            <div class="marka">
+                <input list="marks" name="brand" id="mark" placeholder="მარკა">
                 <datalist id="marks">
                     <option value="Audi">
                     <option value="BMW">
@@ -91,8 +91,8 @@
                     <option value="Nissan">
                     <option value="Hyundai">
                 </datalist>
-            </form>
-            <form action="" class="model">
+            </div>
+            <div class="model">
                 <input type="text" name="model" id="model" list="models" placeholder="მოდელი">
                 <datalist id="models">
                     <option value="A4">
@@ -106,35 +106,48 @@
                     <option value="Altima">
                     <option value="Elantra">
                 </datalist>
-            </form>
-            <form action="" class="year">
+            </div>
+            <div class="year">
                 <input type="number" name="year" id="year" placeholder="წელი">
-            </form>
-            <form action="" class="image image1">
+            </div>
+            <div class="image image1">
                 <p>სურათი 1</p>
                 <input type="file" name="image1" id="image1" >
-            </form>
-            <form action="" class="image image2">
+            </div>
+            <div class="image image2">
                 <p>სურათი 2</p>
                 <input type="file" name="image2" id="image2" >
-            </form>
-            <form action="" class="image image3">
+            </div>
+            <div class="image image3">
                 <p>სურათი 3</p>
                 <input type="file" name="image3" id="image3" >
-            </form>
-            <form action="" class="price">
+            </div>
+            <div class="price">
                 <input type="number" name="price" id="price" placeholder="ფასი">
-            </form>
-            <form action="" class="capacity">
+            </div>
+            <div class="capacity">
                 <input type="number" name="capacity" id="capacity" placeholder="ტევადობა">
-            </form>
-            <form action="" class="transmission">
-                <input type="text" name="transmission" id="transmission" placeholder="ტრანსმისია">
-            </form>
-            <form action="" class="fuel">
-                <input type="number" name="fuel" id="fuel" placeholder="ბაკის ტევადობა">
-            </form>
-            <form action="" class="city">
+            </div>
+            <div class="transmission">
+                <select name="transmission" id="transmission" class="native-select-hidden">
+                    <option value="" selected disabled>ტრანსმისია</option>
+                    <option value="ავტომატური">ავტომატური</option>
+                    <option value="მექანიკური">მექანიკური</option>
+                </select>
+                <div class="custom-select" data-select-id="transmission">
+                    <button type="button" class="custom-select-button" aria-haspopup="listbox" aria-expanded="false">
+                        ტრანსმისია
+                    </button>
+                    <ul class="custom-select-options" role="listbox" aria-label="Transmission options">
+                        <li data-value="ავტომატური" role="option" aria-selected="false" tabindex="0">ავტომატური</li>
+                        <li data-value="მექანიკური" role="option" aria-selected="false" tabindex="0">მექანიკური</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fuel">
+                <input type="number" name="fuelCapacity" id="fuel" placeholder="ბაკის ტევადობა">
+            </div>
+            <div class="city">
                 <input type="text" name="city" id="city" list="cities" placeholder="ქალაქი">
                 <datalist id="cities">
                     <option value="თბილისი">
@@ -143,9 +156,9 @@
                     <option value="რუსთავი">
                     <option value="გორი">
                 </datalist>
-            </form>
-            <button class="save"><a href="">შენახვა</a></button>
-        </div>
+            </div>
+            <button type="submit" class="save" id="saveBtn">შენახვა</button>
+        </form>
         <div class="add_2"></div>
     </div>
 
