@@ -83,18 +83,86 @@ function createCarCard(cars, containerId) {
         carContainer.appendChild(card)
     });
 }
-//--------------------------- end ------------------------
 
-//---------------------------fech polular car ------------------------
+function createDetalCard(cars, containerId) {
 
-async function getpopularcars() {
-  try{
-    const responce = await fetch('https://rentcar.stepprojects.ge/api/Car/popular')
-    const jsn = await responce.json()
-    return jsn
-  } catch (error){
-    console.error(error)
-  };
+  const carContainer = document.getElementById(containerId);
+
+    cars.forEach(car => {
+        const card = document.createElement('div');
+        card.classList.add('detals');
+        card.innerHTML = `
+        <div class="detals">
+            <div class="detals_1">
+                <div action="" class="carusel">
+                    <button type="button" class="b1"><p><</p></button>
+                    <div class="main">
+                        <div class="car1">
+                            <img src="./images/alexandros-athanasopoulos-GUFR1WsgCQQ-unsplash.jpg" alt="">
+                        </div>
+                        <div class="car2">
+                            <img src="./images/bmw_csl_3_0_8k-HD.jpg" alt="">
+                        </div>
+                        <div class="car3">
+                            <img src="./images/rolls-royce-phantom-series-ii-black-cars-black-background-3840x2160-8124.jpg" alt="">
+                        </div>
+                    </div>
+                    <button type="button" class="b2"><p>></p></button>
+                    <div class="allpic">
+                        <button class="img_b1"><div class="img1 img">
+                            <img src="./images/alexandros-athanasopoulos-GUFR1WsgCQQ-unsplash.jpg" alt="">
+                        </div></button>
+                        <button class="img_b2"><div class="img2 img">
+                            <img src="./images/bmw_csl_3_0_8k-HD.jpg" alt="">
+                        </div></button>
+                        <button class="img_b3"><div class="img3 img">
+                            <img src="./images/rolls-royce-phantom-series-ii-black-cars-black-background-3840x2160-8124.jpg" alt="">
+                        </div></button>
+                    </div>
+                </div>
+            </div>
+            <div class="detals_2">
+                <div class="detals_1_1">
+                    <p>მარკა</p><span class="underline"></span><p>2000</p>
+                </div>
+                <div class="detals_1_2">
+                    <p>მოდელი</p><span class="underline"></span><p>2000</p>
+                </div>
+                <div class="detals_2_1">
+                    <p>გამოშვების წელი</p><span class="underline"></span><p>2000</p>
+                </div>
+                <div class="detals_2_2">
+                    <p>საწვავის ავზის მოცულობა</p><span class="underline"></span><p>200</p>
+                </div>
+                <div class="detals_2_3">
+                    <p>ტრანსმისია</p><span class="underline"></span><p>ავტომატიკა</p>
+                </div>
+                <div class="detals_2_4">
+                    <p>ტევადობა</p><span class="underline"></span><p>3 კაცი</p>
+                </div>
+                <form action="">
+                    <label for="range">რამდენი დღით გსურთ შეძენა?</label>
+                    <div class="range_1">
+                        <input class="days_range" type="range" name="range" id="range" min="1" max="30" value="1">
+                        <span id="rangeValue">1</span><span> დღე</span>
+                    </div>
+                </form>
+                <div class="detals_2_5">
+                    <p>ფასი: <span id="price">0</span> ლარი</p>
+                    <a href="">იქირავე</a>
+                </div>
+            </div>
+        </div>
+          `;
+
+        const heart = card.querySelector('.fa-heart');
+        if (heart) {
+          heart.dataset.car = JSON.stringify(car);
+        }
+
+        carContainer.appendChild(card);
+        Carousel(card);
+  });
 }
 
 document.addEventListener('DOMContentLoaded', async () => {

@@ -749,9 +749,223 @@ footer{
         display: flex;
         align-self: center;
         p{
-            font-size: 20px;
+            font-size: 30px;
         }
     }
+    .likedcars{
+        display: grid;
+        grid-template-columns: repeat(4, minmax(200px, 1fr));
+        gap: 20px;
+        padding-left: 5%;
+        padding-right: 5%;
+        margin-bottom: 7vh;
+        .popular{
+            background-color: rgb(241, 241, 241);
+            border: 1px solid rgb(55, 52, 52);
+            border-radius: 10px;
+            overflow: hidden;
+            height: 400px;
+            .cars{
+                width: 100%;
+                height: 100%;
+                align-self: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 10px;
+                .cars_main{
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    .cars_1{
+                        height: 15%;
+                        display: flex;
+                        justify-content: space-between;
+                        .cars_1_1{
+                            height: 100%;
+                            width: auto;
+                        }
+                        .fa-solid{
+                            cursor: pointer;
+                            color: rgb(105, 105, 105);
+                        }
+                    }
+                    .cars_2{
+                        height: 58%;
+                        width: 100%;
+                        .detals_1{
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 15px;        
+                            .carusel1{
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                position: relative;
+                                border-radius: 15px;
+                                .b21{
+                                    width: 40px;
+                                    height: 40px;
+                                    background-color: rgba(0, 0, 0, 0.4);
+                                    color: white;
+                                    font-size: 20px;
+                                    border: none;
+                                    cursor: pointer;
+                                    border-radius: 50%;
+                                    margin-right: 10px;
+                                    position: absolute;
+                                    right: 0;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    &:hover{
+                                        border: 1px solid rgb(255, 36, 36);
+                                    }
+                                    
+                                }
+
+                                .b11{
+                                    width: 40px;
+                                    height: 40px;
+                                    background-color: rgba(0, 0, 0, 0.4);
+                                    color: white;
+                                    font-size: 20px;
+                                    border: none;
+                                    cursor: pointer;
+                                    border-radius: 50%;
+                                    position: absolute;
+                                    margin-left: 10px;
+                                    left: 0;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    &:hover{
+                                        border: 1px solid rgb(255, 36, 36);
+                                    }
+                                }
+
+                                .main1{
+                                    width: 100%;
+                                    height:100%;
+                                    .car1{
+                                        display: block;
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                        border-radius: 15px;
+                                        border: 1px solid rgb(55, 52, 52);
+                                        img{
+                                            width: 100%;
+                                            height: 100%;
+                                            object-fit: cover;
+                                            border-radius: 15px;
+                                        }
+                                    }
+
+                                    .car2{
+                                        display: none;
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                        border-radius: 15px;
+                                        border: 1px solid rgb(55, 52, 52);
+                                        img{
+                                            width: 100%;
+                                            height: 100%;
+                                            object-fit: cover;
+                                            border-radius: 15px;
+                                        }
+                                    }
+
+                                    .car3{
+                                        display: none;
+                                        width: 100%;
+                                        height: 100%;
+                                        border-radius: 15px;
+                                        border: 1px solid rgb(55, 52, 52);
+                                        img{
+                                            width: 100%;
+                                            height: 100%;
+                                            object-fit: cover;
+                                            border-radius: 15px;
+                                        }
+                                    }
+                                }
+                                
+                                .dots{
+                                    position: absolute;
+                                    bottom: 10px;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    display: flex;
+                                    gap: 10px;
+                                    div{
+                                        width: 10px;
+                                        height: 10px;
+                                        background-color: white;
+                                        border-radius: 50%;
+                                        opacity: 0.5;
+                                    }   .active{
+                                            opacity: 1;
+                                        }
+                                }
+                            }
+                        }
+                    }
+                    .cars_3{
+                        height: 16%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        .cars_3_1{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 5px;
+                        }
+                        .cars_3_2{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 5px;
+                            svg{
+                                width: 20px;
+                                height: 20px;
+                                cursor: pointer;
+                            }
+                        }
+                        .cars_3_3{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 5px;
+                        }
+                    }
+                    .cars_4{
+                        height: 11%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        a{
+                            background-color: rgb(255, 36, 36);
+                            height: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 100px;
+                            text-decoration: none;
+                            color: antiquewhite;
+                            border-radius: 10px;
+                        }
+                    }
+                }
+            } 
+        }
+    }
+
 }
 
 .detals{
