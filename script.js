@@ -40,7 +40,7 @@ if (items.length > 0) {
 
 //--------------------------- fetch car ------------------------
 
-async function getcars(pageIndex = 1, pageSize = 10) {
+async function getcars(pageIndex = 1, pageSize = 12) {
    try {
     const response = await fetch(`https://rentcar.stepprojects.ge/api/Car/paginated?pageIndex=${pageIndex}&pageSize=${pageSize}`);
         const data = await response.json();
@@ -463,7 +463,7 @@ document.addEventListener('click', (event) => {
 
 const mainPagination = document.getElementById('mainPagination');
 let mainCurrentPage = 1;
-const mainPageSize = 10;
+const mainPageSize = 12;
 
 function setMainPaginationState() {
   if (!mainPagination) {
@@ -538,7 +538,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     createCarCard(popularCarData, 'popular');
 }) 
 
-//--------------------------- ქირაობის ღილაკი  -------------------------
+//--------------------------- ქირაობის ღილაკი  ------------------------
 
 document.addEventListener('click', (event) => {
   const btn = event.target.closest('.details-button');
@@ -949,7 +949,7 @@ if (addCar) {
     const result = await addcarform(formdata);
    
     if (result.ok) {
-      console.log('Car added successfully:', result.data);
+      console.log( result.data);
     }
   });
 }
@@ -997,9 +997,29 @@ const filterPagination = document.getElementById('filterPagination');
 let filterCurrentPage = 1;
 const filterPageSize = 12;
 let lastFilterPayload = null;
+let filterTotalPages = 0;
+
+function hasSelectedFilter(payload) {
+  if (!payload) {
+    return false;
+  }
+
+  return Boolean(
+    payload.city?.trim() ||
+    payload.startYear?.toString().trim() ||
+    payload.endYear?.toString().trim() ||
+    payload.capacity?.toString().trim()
+  );
+}
 
 function setFilterPaginationState() {
   if (!filterPagination) {
+    return;
+  }
+
+  if (filterTotalPages <= 1) {
+    filterPagination.style.display = 'none';
+    filterPagination.innerHTML = '';
     return;
   }
 
@@ -1018,7 +1038,15 @@ function setFilterPaginationState() {
   });
   filterPagination.appendChild(prevBtn);
 
-  for (let i = 1; i <= 5; i++) {
+  const maxVisiblePages = 5;
+  let startPage = Math.max(1, filterCurrentPage - 2);
+  let endPage = Math.min(filterTotalPages, startPage + maxVisiblePages - 1);
+
+  if (endPage - startPage + 1 < maxVisiblePages) {
+    startPage = Math.max(1, endPage - maxVisiblePages + 1);
+  }
+
+  for (let i = startPage; i <= endPage; i++) {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.textContent = i;
@@ -1037,7 +1065,9 @@ function setFilterPaginationState() {
   nextBtn.type = 'button';
   nextBtn.textContent = '>';
   nextBtn.classList.add('filter_page_btn');
+  nextBtn.disabled = filterCurrentPage >= filterTotalPages;
   nextBtn.addEventListener('click', async () => {
+    if (filterCurrentPage >= filterTotalPages) return;
     filterCurrentPage += 1;
     await renderFilteredCarsPage();
   });
@@ -1049,20 +1079,44 @@ async function renderFilteredCarsPage() {
     return;
   }
 
-  const filteredData = await filter(
-    lastFilterPayload.city,
-    lastFilterPayload.endYear,
-    lastFilterPayload.startYear,
-    lastFilterPayload.capacity,
-    filterCurrentPage,
-    filterPageSize
-  );
+  const selectedFilter = hasSelectedFilter(lastFilterPayload);
+  const filteredData = selectedFilter
+    ? await filter(
+      lastFilterPayload.city,
+      lastFilterPayload.endYear,
+      lastFilterPayload.startYear,
+      lastFilterPayload.capacity,
+      filterCurrentPage,
+      filterPageSize
+    )
+    : await getcars(filterCurrentPage, filterPageSize);
+
+  if (!filteredData || !Array.isArray(filteredData.data)) {
+    filterTotalPages = 0;
+    setFilterPaginationState();
+    return;
+  }
 
   const filteredCars = filteredData.data;
+  const totalItems = Number(
+    filteredData.totalCount ??
+    filteredData.totalItems ??
+    filteredData.count ??
+    filteredData.itemsCount ??
+    filteredCars.length
+  );
+
+  filterTotalPages = totalItems > 0 ? Math.ceil(totalItems / filterPageSize) : 0;
+
+  if (filterTotalPages > 0 && filterCurrentPage > filterTotalPages) {
+    filterCurrentPage = filterTotalPages;
+    await renderFilteredCarsPage();
+    return;
+  }
 
   if (filteredCars.length === 0 && filterCurrentPage > 1) {
     filterCurrentPage -= 1;
-    setFilterPaginationState();
+    await renderFilteredCarsPage();
     return;
   }
 
@@ -1071,13 +1125,15 @@ async function renderFilteredCarsPage() {
     filteredCarsContainer.innerHTML = '';
   }
 
-  createCarCard(filteredCars, 'filterdCars');
+  if (filteredCars.length > 0) {
+    createCarCard(filteredCars, 'filterdCars');
+  }
+
   setFilterPaginationState();
 }
 
 if (filterBtn) {
-  filterBtn.addEventListener('click', async (event) => {
-    event.preventDefault();
+  const applyFilterFromInputs = async () => {
     const cityInput = document.getElementById('city-input');
     const startYearInput = document.getElementById('startYear-input');
     const endYearInput = document.getElementById('endYear-input');
@@ -1094,9 +1150,71 @@ if (filterBtn) {
       endYear,
       capacity
     };
+
     filterCurrentPage = 1;
     await renderFilteredCarsPage();
+  };
 
+  filterBtn.addEventListener('click', async (event) => {
+    event.preventDefault();
+    await applyFilterFromInputs();
+  });
+
+  applyFilterFromInputs();
+
+}
+
+const main = document.getElementById('crChatPanel');
+const icon = document.getElementById('crChatLauncher');
+const fold = document.getElementById('crChatClose');
+const form = document.getElementById('crChatForm');
+const input = document.getElementById('crChatInput');
+const content = document.getElementById('crChatContent');
+
+if (main && icon && fold && form && input && content) {
+  fold.addEventListener("click", () => {
+      main.style.display = "none";
+      icon.classList.remove('launcher-hidden');
+  });
+
+  icon.addEventListener("click", () => {
+      icon.classList.add('launcher-hidden');
+      main.style.display = "block";
+      void main.offsetWidth;
+      main.classList.add('is-opening');
+      setTimeout(() => input.focus(), 300);
+  });
+
+  const scrollToBottom = () => {
+      requestAnimationFrame(() => {
+          content.scrollTop = content.scrollHeight;
+      });
+  };
+
+  form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const text = input.value.trim();
+      if (!text) return;
+
+      const userMsg = document.createElement("div");
+      userMsg.className = "cr-chat__message cr-chat__message--user";
+
+      const rawHTML = typeof marked !== 'undefined' ? marked.parse(text) : text;
+      const cleanHTML = typeof DOMPurify !== 'undefined' ? DOMPurify.sanitize(rawHTML) : rawHTML;
+      userMsg.innerHTML = cleanHTML;
+      content.appendChild(userMsg);
+
+      input.value = "";
+      scrollToBottom();
+
+      const botMsg = document.createElement("div");
+      botMsg.className = "cr-chat__message cr-chat__message--bot";
+      botMsg.textContent = "ჩვენი ოპერატორი მალე გიპასუხებთ...";
+      content.appendChild(botMsg);
+      scrollToBottom();
+
+      scrollToBottom();
   });
 }
 

@@ -108,6 +108,25 @@
     <div class="popular_head">ყველა მანქანა</div>
     <div class="random_main" id="random"></div>
     <div class="main_pagination" id="mainPagination" style="display: none;"></div>
+    <div class="cr-chat" id="crChatPanel">
+        <div class="cr-chat__header">
+            <button type="button" class="cr-chat__close" id="crChatClose" aria-label="Close chat"></button>
+        </div>
+        <div class="cr-chat__content" id="crChatContent"></div>
+        <div class="cr-chat__footer">
+            <form id="crChatForm" action="">
+                <div class="cr-chat__input-wrap">
+                    <input type="text" id="crChatInput" class="cr-chat__input" placeholder="Ask anything">
+                    <button type="submit" class="cr-chat__send" id="crChatSend" aria-label="Send message">
+                        <svg class="cr-chat__send-icon" viewBox="0 0 16 16" fill="currentColor" width="26px" height="26px">
+                        <path fill="rgb(97, 197, 93)" d="M1.40926391,5.29366938 L15.6697462,0.453934265 C16.3429879,0.239515621 16.9856276,0.882771554 16.7714144,1.55665872 L11.9363152,15.8308142 C11.722102,16.5047013 10.8040452,16.6272263 10.4062206,16.0146016 L7.34603122,11.3280226 L12.057229,5.36657191 C12.2102384,5.1827845 12.0266271,4.9989971 11.8430157,5.15215327 L5.87714034,9.91898584 L1.19505066,6.85586236 C0.613614686,6.42702507 0.705420366,5.53871926 1.40926391,5.29366938 Z" transform="rotate(-45 12.3 10.382)"></path>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <i id="crChatLauncher" class="fa-solid fa-comment-dots cr-chat__launcher" style="color: rgba(59, 131, 109, 1.00);"></i>
     <footer>
         <div class="footer_1">
             <p class="contact">კონტაქტი:</p>
