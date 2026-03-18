@@ -18,6 +18,38 @@ header {
   left: 0;
   z-index: 1000;
 }
+header .regi {
+  width: 135px;
+  height: 45px;
+  border-radius: 15px;
+  border: none;
+}
+header .regi a {
+  width: 135px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  background-color: rgb(255, 36, 36);
+  border: none;
+  border-radius: 15px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  color: antiquewhite;
+  transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+header .regi a:hover {
+  background-color: rgb(52, 166, 32);
+  color: white;
+}
+header .regi a:focus-visible {
+  background-color: rgb(52, 166, 32);
+  color: white;
+}
 header .head_user {
   display: flex;
   justify-content: center;
@@ -54,6 +86,44 @@ header .header_icons {
   display: flex;
   align-items: center;
   gap: 30px;
+}
+header .header_icons .notification {
+  position: relative;
+  cursor: pointer;
+  background-color: #111;
+  border: none;
+  overflow: visible;
+}
+header .header_icons .notification .notification-dot {
+  display: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ff3b30;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(45%, -45%);
+  z-index: 3;
+  pointer-events: none;
+}
+header .header_icons .notification.has-unread .notification-dot {
+  display: block;
+}
+header .header_icons .notification.has-unread::after {
+  content: none;
+}
+header .header_icons .notificatindiv {
+  display: none;
+  width: auto;
+  height: auto;
+  color: white;
+  background-color: black;
+  padding: 10px;
+  position: absolute;
+  top: 85px;
+  right: 250px;
+  border: 1px solid red;
 }
 header .header_icons a {
   text-decoration: none;

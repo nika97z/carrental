@@ -19,6 +19,30 @@ header{
     top: 0;
     left: 0;
     z-index: 1000;
+    .regi{
+        width: 135px;
+        height: 45px;
+        border-radius: 15px;
+        border: none;
+        a{
+            width: 135px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            background-color: rgb(255, 36, 36);
+            border: none;
+            border-radius: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            color: antiquewhite;
+            transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            @include hover(rgb(52, 166, 32), white);
+        }
+    }
     .head_user{
         display: flex;
         justify-content: center;
@@ -47,7 +71,47 @@ header{
         display: flex;
         align-items: center;
         gap: 30px;
+        .notification{
+            position: relative;
+            cursor: pointer;
+            background-color: #111;
+            border: none;
+            overflow: visible;
 
+            .notification-dot {
+                display: none;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: #ff3b30;
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: translate(45%, -45%);
+                z-index: 3;
+                pointer-events: none;
+            }
+
+            &.has-unread .notification-dot {
+                display: block;
+            }
+
+            &.has-unread::after {
+                content: none;
+            }
+        }
+        .notificatindiv{
+            display: none;
+            width: auto;
+            height: auto;
+            color: white;
+            background-color: black;
+            padding: 10px;
+            position: absolute;
+            top: 85px;
+            right: 250px;
+            border: 1px solid red;
+        }
         a{
             text-decoration: none;
             color: inherit;
@@ -3002,6 +3066,7 @@ footer{
             width: 120px;
             height: 40px;
             font-size: 15px;
+            
         }
     }
     .header_holder{

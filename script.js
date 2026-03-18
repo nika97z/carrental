@@ -455,7 +455,8 @@ document.addEventListener('click', (event) => {
   const multiplier = multiplierElement ? multiplierElement.textContent : '1';
 
   getPurchsedCrs(phoneNumber, carId, multiplier);
-
+  console.log(localStorage.getItem('carCreatedBy'))
+  getmassage(localStorage.getItem('carCreatedBy'), carId);
   window.location.href = 'succes_rent.html';
 
 });
@@ -540,7 +541,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 //--------------------------- ქირაობის ღილაკი  ------------------------
 
-document.addEventListener('click', (event) => {
+document.addEventListener('click', async (event) => {
   const btn = event.target.closest('.details-button');
   if (!btn) {
     return;
@@ -548,10 +549,14 @@ document.addEventListener('click', (event) => {
 
   event.preventDefault();
   const userPhone = localStorage.getItem('phoneNumber');
-
+  const createdby = await getCaryId(btn.dataset.carId);
+  const createdBy = createdby.createdBy;
+  localStorage.setItem('carCreatedBy', createdBy);
+  console.log(localStorage.getItem('carCreatedBy'))
   if (userPhone) {
     const carId = btn.dataset.carId;
     localStorage.setItem('selectedCarId', carId);
+    
     window.location.href = './detals.html';
   } else {
     window.location.href = './login.html';
@@ -949,10 +954,23 @@ if (addCar) {
     const result = await addcarform(formdata);
    
     if (result.ok) {
-      console.log( result.data);
+      window.location.href = 'succes_add.html';
     }
   });
 }
+
+async function getmassage(user, id) {
+  try{
+    const responce = await fetch(`https://rentcar.stepprojects.ge/Message/Message?phoneNumber=${user}&CarId=${id}`, {
+      method: 'POST'
+    })
+  }catch(error){
+    console.error(error)
+  }
+}
+
+getmassage('123332123', '7821');
+
 
 async function addcarform(sendData){
     try {
@@ -1219,4 +1237,19 @@ if (main && icon && fold && form && input && content) {
 }
 
 
+
+
+const notific = document.querySelector('.notification');
+const notdiv = document.querySelector(".notificatindiv");
+
+if (notific && notdiv) {
+  notific.addEventListener('click', (event) => {
+    event.stopPropagation();
+    notdiv.style.display = notdiv.style.display === 'block' ? 'none' : 'block';
+  });
+
+  document.addEventListener('click', () => {
+    notdiv.style.display = 'none';
+  });
+}
 
